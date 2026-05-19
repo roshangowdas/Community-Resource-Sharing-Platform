@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "avatar": { "type": "string" },
+        "location": { "type": "string" },
+        "bio": { "type": "string" },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "isAdmin": { "type": "boolean" },
+        "isVerified": { "type": "boolean" },
+        "trustScore": { "type": "number" },
+        "reliabilityRate": { "type": "number" },
+        "punctualityRate": { "type": "number" },
+        "responseTimeSeconds": { "type": "number" },
+        "disputeRate": { "type": "number" },
+        "transactionCount": { "type": "number" },
+        "impactScore": { "type": "number" }
+      },
+      "required": ["name", "email"]
+    },
+    "Item": {
+      "title": "Item",
+      "description": "An item listed for sharing or donation",
+      "type": "object",
+      "properties": {
+        "owner": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "type": { "type": "string", "enum": ["share", "donate"] },
+        "images": { "type": "array" },
+        "location": { "type": "string" },
+        "coordinates": { "type": "object" },
+        "condition": { "type": "string", "enum": ["Like New", "Gently Used", "Repairable", "New"] },
+        "status": { "type": "string", "enum": ["available", "reserved", "borrowed", "completed", "deleted"] },
+        "saveCount": { "type": "number" },
+        "views": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["owner", "title", "category", "type", "location"]
+    },
+    "Request": {
+      "title": "Request",
+      "description": "A request to borrow or receive an item",
+      "type": "object",
+      "properties": {
+        "item": { "type": "string" },
+        "requester": { "type": "string" },
+        "owner": { "type": "string" },
+        "status": { "type": "string" },
+        "message": { "type": "string" },
+        "borrowStartDate": { "type": "string", "format": "date-time" },
+        "borrowEndDate": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["item", "requester", "owner", "status"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "A notification for a user",
+      "type": "object",
+      "properties": {
+        "recipient": { "type": "string" },
+        "sender": { "type": "string" },
+        "type": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "isRead": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "User",
+      "description": "Collection of user profiles"
+    },
+    "items": {
+      "schema": "Item",
+      "description": "Collection of items for share/donate"
+    },
+    "requests": {
+      "schema": "Request",
+      "description": "Collection of borrow/receive requests"
+    },
+    "notifications": {
+      "schema": "Notification",
+      "description": "Collection of user notifications"
+    }
+  }
+}

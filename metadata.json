@@ -1,0 +1,10 @@
+{
+  "name": "ShareLocal",
+  "description": "A community-driven platform for local users to share or donate unused items temporarily or permanently. Featuring trust reviews and community-led content moderation.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

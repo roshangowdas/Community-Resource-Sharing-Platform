@@ -1,0 +1,23 @@
+# Windows Command Prompt Installation & Execution Guide
+
+1. **Install Node.js**
+   If you don't have it, download and install Node.js from https://nodejs.org/
+
+2. **Open Command Prompt**
+   Press 'Win + R', type 'cmd', and hit Enter.
+
+3. **Navigate to the project folder**
+   cd path\to\ShareLocal
+
+4. **Install Dependencies**
+   npm install
+
+5. **Set up environment variables**
+   copy .env.example .env
+   (Then open .env with Notepad and add your MONGODB_URI)
+
+6. **Start Development Server**
+   npm run dev
+
+7. **Access the App**
+   Open your browser and go to http://localhost:3000

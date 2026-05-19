@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShareLocal</title>
+    <script>
+      // Silence benign Vite HMR or Socket.io websocket errors immediately
+      (function() {
+        const silenceRejection = function(event) {
+          const reason = String(event.reason || '');
+          if (
+            reason.includes('WebSocket') ||
+            reason.includes('websocket') ||
+            reason.includes('failed to connect')
+          ) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return false;
+          }
+        };
+        const silenceError = function(event) {
+          const msg = String(event.message || '');
+          if (
+            msg.includes('WebSocket') ||
+            msg.includes('websocket') ||
+            msg.includes('failed to connect')
+          ) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return false;
+          }
+        };
+        window.addEventListener('unhandledrejection', silenceRejection, true);
+        window.addEventListener('error', silenceError, true);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

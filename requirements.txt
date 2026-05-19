@@ -1,0 +1,18 @@
+# ShareLocal Requirements
+# Note: This project uses Node.js. "requirements.txt" is provided for your documentation.
+# The actual dependencies are managed via package.json.
+
+express
+mongoose
+bcryptjs
+jsonwebtoken
+cors
+socket.io
+dotenv
+react
+react-router-dom
+lucide-react
+motion
+vite
+typescript
+tsx
